@@ -36,8 +36,7 @@ public class AmazoneTest extends TestInit {
         amazoneBasePage.getFieldSearch().sendKeys("MacBook");
         amazoneBasePage.getBtnSearchOnHeader().click();
 
-        Assert.assertEquals(amazoneBasePage.getResaultSearchBtn().getText(),"\"MacBook\"");
-
+        Assert.assertEquals(amazoneBasePage.getResaultSearch2().getText(),"\"MacBook\"");
     }
 
 }
