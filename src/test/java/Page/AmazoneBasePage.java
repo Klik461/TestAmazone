@@ -19,19 +19,18 @@ public class AmazoneBasePage extends BasePage {
         return driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']"));
     }
 
-    public WebElement getResaultSearch() {
-        return driver.findElement(By.xpath("//span[@class='a-color-state a-text-bold']"));
-    }
-
-
-    private static final String GET_RESULT_SEARCH_BTN = "//span[@class='a-color-state a-text-bold']";
+    private static final String GET_RESAULT_SEARCH = "//span[@class='a-color-state a-text-bold']";
+    private static final String GET_RESULT_SEARCH_2 = "//span[@class='a-color-state a-text-bold']";
     private static final String GET_BTN_SEARCH_ON_HEADER = "//input[@id='nav-search-submit-button']";
 
-    public WebElement getResaultSearchBtn() {
-        return waitUntiVisabilityElementLocated(GET_RESULT_SEARCH_BTN);
+    public WebElement getResaultSearch2() {
+        return waitUntiVisabilityElementLocated(GET_RESULT_SEARCH_2);
     }
     public WebElement getBtnSearchOnHeader() {
         return waitUntiVisabilityElementLocated(GET_BTN_SEARCH_ON_HEADER);
+    }
+    public WebElement getResaultSearch() {
+        return waitUntiVisabilityElementLocated(GET_RESAULT_SEARCH);
     }
 
 
