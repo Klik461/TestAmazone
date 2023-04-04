@@ -28,8 +28,14 @@ public class BasePage {
 
     protected WebElement waitUntiVisabilityElementLocated(String locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+    }
+    protected WebElement waitUntilElementToBeClickable(String locator) {
+        return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+    }
 
-
+    protected void moveCursor(WebElement element){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).build().perform();
     }
 
 

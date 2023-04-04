@@ -26,7 +26,7 @@ public class TestInit {
     }
 
     public void openUrl() {
-        driver.get("https://www.amazon.com/");
+        driver.get("https://www.vans.co.uk");
     }
 
     @AfterMethod
