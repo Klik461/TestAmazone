@@ -1,35 +1,49 @@
 package Test;
 
 import BasesClass.TestInit;
-import Page.VansBasePage;
+import Page.*;
+import org.apache.http.util.Asserts;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class VansOrderSelectionTest extends TestInit {
-
-    String nameShouse = "KIDS OLD SKOOL SHOES (4-8 YEARS)";
-    String Size = "10";
-    String Prise = "£ 40.00";
-
-
     @Test
    public void orderSelectionTest() {
         VansBasePage vansBasePage = new VansBasePage(driver);
+        KidsClassicsShoesPage kidsClassicsShoesPage = new KidsClassicsShoesPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        SelectDeliveryPage selectDeliveryPage = new SelectDeliveryPage(driver);
+        DeliveryDetailsData deliveryDetailsData = new DeliveryDetailsData();
+        PaymentOrderSummeryPage paymentOrderSummeryPage = new PaymentOrderSummeryPage(driver);
 
         openUrl();
         vansBasePage.btnAllowAllSecondOpen().click();
-        vansBasePage.moveOnKidsBtn().btnShoesInKidsBox().click();
-        vansBasePage.btnCloseNews().click();
-        vansBasePage.btnCloseNews2().click();
-        vansBasePage.moveToThirdClassesShoue().btnQuickShopThirdElement().click();
-        vansBasePage.fieldSelectASize().click();
-        vansBasePage.fieldSizeTen().click();
-        vansBasePage.btnAddToCart().click();
-        vansBasePage.basketBtnOnHeader().click();
+        vansBasePage.moveOnKidsBtn().btnClassicsInKidsBox().click();
+        String NameBrand = kidsClassicsShoesPage.getNameClassics().getText();
+        String PriceThirdShoes = kidsClassicsShoesPage.getPriceThirdShoes().getText().substring(1,6);
+        String BrandThirdShoes = kidsClassicsShoesPage.getBrandThirdShoes().getText().toLowerCase();
+        kidsClassicsShoesPage.moveThirdProductClassics().btnQuickShopThirdProduct().click();
+        kidsClassicsShoesPage.fieldSelectSize().click();
+        kidsClassicsShoesPage.fieldSizeTen().click();
+        kidsClassicsShoesPage.btnAddToCart().click();
+        kidsClassicsShoesPage.btnBasketOnHeader().click();
+        String SizeShouse = kidsClassicsShoesPage.getSizeShoesSelect().getText();
+        shoppingCartPage.btnCheckoutSecurely().click();
+        selectDeliveryPage.fieldFirstName().sendKeys(deliveryDetailsData.getFirstName());
+        selectDeliveryPage.fieldLastName().sendKeys(deliveryDetailsData.getLastName());
+        selectDeliveryPage.fieldhouseAdress().sendKeys(deliveryDetailsData.getHouseNumber());
+        selectDeliveryPage.fieldCity().sendKeys(deliveryDetailsData.getCity());
+        selectDeliveryPage.fieldPostCode().sendKeys(deliveryDetailsData.getPostCode());
+        selectDeliveryPage.fieldPhoneNumber().sendKeys(deliveryDetailsData.getNumberPhone());
+        selectDeliveryPage.fieldEmail().sendKeys(deliveryDetailsData.getEmail());
+        selectDeliveryPage.checkBoxAcceptVans().click();
+        selectDeliveryPage.checkBoxKeepMe().click();
+        selectDeliveryPage.btnProccedToPayment().click();
+        selectDeliveryPage.fieldInfoOrder().click();
 
-        Assert.assertEquals(vansBasePage.nameShoe().getText(),nameShouse);
-        Assert.assertEquals(vansBasePage.sizeShoe().getText(),Size);
-        Assert.assertEquals(vansBasePage.priceShoe().getText(),Prise);
+         Assert.assertTrue(paymentOrderSummeryPage.getNameOrderedProduct().getText().toLowerCase().contains(BrandThirdShoes));
+         Assert.assertEquals(paymentOrderSummeryPage.getSizeShoes().getText(),SizeShouse);
+         Assert.assertEquals(paymentOrderSummeryPage.getPriceShoes().getText().substring(2,7),PriceThirdShoes);
     }
 
 }
