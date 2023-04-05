@@ -28,8 +28,8 @@ public class VansOrderSelectionTest extends TestInit {
         vansBasePage.basketBtnOnHeader().click();
 
         Assert.assertEquals(vansBasePage.nameShoe().getText(),nameShouse);
-        Assert.assertEquals(vansBasePage.sizeShoe().getText().toString(),Size);
-        Assert.assertEquals(vansBasePage.priceShoe().getText().toString(),Prise);
+        Assert.assertEquals(vansBasePage.sizeShoe().getText(),Size);
+        Assert.assertEquals(vansBasePage.priceShoe().getText(),Prise);
     }
 
 }
