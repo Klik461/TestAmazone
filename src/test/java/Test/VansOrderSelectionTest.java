@@ -2,7 +2,6 @@ package Test;
 
 import BasesClass.TestInit;
 import Page.*;
-import org.apache.http.util.Asserts;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,7 +9,7 @@ public class VansOrderSelectionTest extends TestInit {
     @Test
    public void orderSelectionTest() {
         VansBasePage vansBasePage = new VansBasePage(driver);
-        KidsClassicsShoesPage kidsClassicsShoesPage = new KidsClassicsShoesPage(driver);
+        KidsShoesPage kidsShoesPage = new KidsShoesPage(driver);
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
         SelectDeliveryPage selectDeliveryPage = new SelectDeliveryPage(driver);
         DeliveryDetailsData deliveryDetailsData = new DeliveryDetailsData();
@@ -18,16 +17,17 @@ public class VansOrderSelectionTest extends TestInit {
 
         openUrl();
         vansBasePage.btnAllowAllSecondOpen().click();
-        vansBasePage.moveOnKidsBtn().btnClassicsInKidsBox().click();
-        String NameBrand = kidsClassicsShoesPage.getNameClassics().getText();
-        String PriceThirdShoes = kidsClassicsShoesPage.getPriceThirdShoes().getText().substring(1,6);
-        String BrandThirdShoes = kidsClassicsShoesPage.getBrandThirdShoes().getText().toLowerCase();
-        kidsClassicsShoesPage.moveThirdProductClassics().btnQuickShopThirdProduct().click();
-        kidsClassicsShoesPage.fieldSelectSize().click();
-        kidsClassicsShoesPage.fieldSizeTen().click();
-        kidsClassicsShoesPage.btnAddToCart().click();
-        kidsClassicsShoesPage.btnBasketOnHeader().click();
-        String SizeShouse = kidsClassicsShoesPage.getSizeShoesSelect().getText();
+        vansBasePage.moveCursorOnCategoryBtn(HeadersCategory.KIDS.getName()).btnClassicsInKidsBox().click();
+        String NameBrand = kidsShoesPage.getNameClassics().getText();
+        String PriceThirdShoes = kidsShoesPage.getPriceThirdShoes().getText().substring(1,6);
+        String BrandThirdShoes = kidsShoesPage.getBrandThirdShoes().getText().toLowerCase();
+        kidsShoesPage.moveThirdProductClassics().btnQuickShopThirdProduct().click();
+        kidsShoesPage.fieldSelectSize().click();
+        kidsShoesPage.fieldSizeTen().click();
+        kidsShoesPage.btnAddToCart().click();
+        vansBasePage.btnBasketOnHeader().click();
+
+        String SizeShouse = kidsShoesPage.getSizeShoesSelect().getText();
         shoppingCartPage.btnCheckoutSecurely().click();
         selectDeliveryPage.fieldFirstName().sendKeys(deliveryDetailsData.getFirstName());
         selectDeliveryPage.fieldLastName().sendKeys(deliveryDetailsData.getLastName());

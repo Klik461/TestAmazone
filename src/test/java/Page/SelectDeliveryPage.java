@@ -51,6 +51,9 @@ public class SelectDeliveryPage extends BasePage {
     public WebElement btnProccedToPayment() {
         return waitUntilElementToBeClickable(BTN_PROCEED_TO_PAYMENT);
     }
+    public void chechBtnProccedToPaymant() {
+        waitUntilInvisibilityElementLocated(BTN_PROCEED_TO_PAYMENT);
+    }
     public WebElement fieldInfoOrder() {
         return waitUntilElementToBeClickable(FIELD_INFO_ORDER);
     }
