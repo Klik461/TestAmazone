@@ -9,5 +9,8 @@
         <module name="TestVansShop" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="TestAmazone" target="19" />
+    </bytecodeTargetLevel>
   </component>
 </project>
