@@ -29,9 +29,8 @@ public class TestInit {
         driver.get("https://www.vans.co.uk");
     }
 
-  /*  @AfterMethod
+   /* @AfterMethod
     public void closeBrouser() {
-        driver.close();
         driver.quit();
     }*/
 

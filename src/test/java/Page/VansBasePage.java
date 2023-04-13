@@ -4,6 +4,8 @@ import BasesClass.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class VansBasePage extends BasePage {
 
     public VansBasePage(WebDriver driver){
@@ -17,6 +19,7 @@ public class VansBasePage extends BasePage {
     private static final String FIELD_MINI_ME_IN_KIDS = "//a[@data-navigation='MINI_ME:PAGE-NOT-FOUND:kids']";
     private static final String BTN_BASKET_ON_HEADER = "//a[@aria-describedby='topnav-shopcart-link-instructions']";
     private static final String CLOSE_POP_UP_SALE_TEN_PROC = "//div[@class='close-wrapper']";
+    private static final String BTN_LANGUAGE_SELECTOR = "//div[contains(@class,'hide-for-small-only')]//span[@class='topnav-utility-item--flag-image-wrapper']";
 
     public WebElement categoryBtnOnHeader(String categoryName) {
         return waitUntilVisibilityElementLocated(String.format("(//ul[@role='menubar']/li[contains(@class,'topnav-accordion-item')])[%s]", categoryName));
@@ -29,8 +32,17 @@ public class VansBasePage extends BasePage {
         return waitUntilVisibilityElementLocated(BTN_CLASSICS_IN_KIDS_BOX);
     }
     public WebElement btnAllowAllSecondOpen() {
-        return waitUntilElementToBeClickable(BTN_ALLOW_ALL_SECOND_OPEN);
+       return waitUntilElementToBeClickable(BTN_ALLOW_ALL_SECOND_OPEN);
     }
+    public void skipAdd(){
+        if(btnAllowAllSecondOpen().isDisplayed()){
+            btnAllowAllSecondOpen().click();
+        }
+        if(!closePopUpSaleTenProc().isEmpty()){
+            closePopUpSaleTenProc().get(0).click();
+        }
+    }
+
     public WebElement btnJacketInWomanMenu() {
         return waitUntilElementToBeClickable(BTN_JACKET_IN_WOMAN_MENU);
     }
@@ -43,8 +55,15 @@ public class VansBasePage extends BasePage {
     public WebElement btnBasketOnHeader() {
         return waitUntilElementToBeClickable(BTN_BASKET_ON_HEADER);
     }
-    public WebElement closePopUpSaleTenProc() {
-        return waitUntilElementToBeClickable(CLOSE_POP_UP_SALE_TEN_PROC);
+    public List<WebElement> closePopUpSaleTenProc() {
+        return waitUntilElementsToBoLocated(CLOSE_POP_UP_SALE_TEN_PROC);
+    }
+    public WebElement btnLanguageSelector() {
+        return  waitUntilElementToBeClickable(BTN_LANGUAGE_SELECTOR);
+    }
+    public WebElement getNameBtnFavorite(String nameBtn) {
+        return waitUntilVisibilityElementLocated(String
+                .format("//div[contains(@class,'hide-for-small-only')]//li[@class='topnav-utility-item wishlist']//span[@class='topnav-utility-item-label'][contains(text(),'%s')]",nameBtn));
     }
 
 }
