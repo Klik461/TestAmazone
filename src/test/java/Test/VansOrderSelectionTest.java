@@ -46,4 +46,8 @@ public class VansOrderSelectionTest extends TestInit {
          Assert.assertEquals(paymentOrderSummeryPage.getPriceShoes().getText().substring(2,7),PriceThirdShoes);
     }
 
+    /* {"France","Favoris"},
+     {"Italy","Preferiti"},
+     {"Germany","Favoriten"}*/
+
 }
