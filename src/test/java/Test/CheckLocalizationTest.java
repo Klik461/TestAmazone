@@ -33,7 +33,12 @@ public class CheckLocalizationTest extends TestInit{
         try {
             vansBasePage.btnAllowAllSecondOpen().click();
         }catch(Exception e) {
-            System.out.println("Test go next step");
+            System.out.println("EX_1");
+        }
+        try {
+            vansBasePage.closePopUpSaleTenProc().click();
+        }catch (Exception e) {
+            System.out.println("EX_2");
         }
         vansBasePage.btnLanguageSelector().click();
         languageSelectionPage.clickBtnSelectLocation();

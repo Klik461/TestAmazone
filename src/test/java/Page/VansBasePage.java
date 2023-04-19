@@ -48,8 +48,8 @@ public class VansBasePage extends BasePage {
     public WebElement btnBasketOnHeader() {
         return waitUntilElementToBeClickable(BTN_BASKET_ON_HEADER);
     }
-    public List<WebElement> closePopUpSaleTenProc() {
-        return waitUntilElementsToBoLocated(CLOSE_POP_UP_SALE_TEN_PROC);
+    public WebElement closePopUpSaleTenProc() {
+        return waitUntilElementToBeClickable(CLOSE_POP_UP_SALE_TEN_PROC);
     }
     public WebElement btnLanguageSelector() {
         return  waitUntilElementToBeClickable(BTN_LANGUAGE_SELECTOR);
