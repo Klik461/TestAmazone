@@ -37,6 +37,7 @@ public class CheckTheOrderInformationForFiveProducts extends TestInit {
         String getSizeSelectionWomen = womanJacketAndCoatsPage.getSelectionSizeWomen().getText();
         womanJacketAndCoatsPage.fieldSelectionXXS().click();
         womanJacketAndCoatsPage.btnAddToCart().click();
+        shoppingCartPage.btnCloseBasketPopUp().click();
         womanJacketAndCoatsPage.checkAddToCartBtnInvisible();
 
         vansBasePage.moveCursorOnCategoryBtn(HeadersCategory.MEN.getName()).fieldHoodiesAndSweatshirtsInMen().click();
@@ -47,6 +48,7 @@ public class CheckTheOrderInformationForFiveProducts extends TestInit {
         mansHoodiesAndSweatshirtsPage.selectSizeLAboutHoodies().click();
         String getPriceMenHoodies = mansHoodiesAndSweatshirtsPage.getPriceMenHoodies().getText();
         mansHoodiesAndSweatshirtsPage.btnAddToCartMenHoodies().click();
+        shoppingCartPage.btnCloseBasketPopUp().click();
         mansHoodiesAndSweatshirtsPage.checkAddToCartBtnInvasible();
 
         vansBasePage.moveCursorOnCategoryBtn(HeadersCategory.KIDS.getName()).fieldMiniMeInKids().click();
@@ -57,6 +59,7 @@ public class CheckTheOrderInformationForFiveProducts extends TestInit {
         kidsShoesPage.fieldSizeHalfTen().click();
         String getPriceKidsProduct = kidsShoesPage.getPriceKids().getText();
         kidsShoesPage.btnAddToCart().click();
+        shoppingCartPage.btnCloseBasketPopUp().click();
         kidsShoesPage.checkAddToCartInvisibility();
 
         vansBasePage.categoryBtnOnHeader(HeadersCategory.VANS_X_HARIBO.getName()).click();
@@ -67,16 +70,18 @@ public class CheckTheOrderInformationForFiveProducts extends TestInit {
         String getSizeFirstTShirt = vansAndHariboPage.fieldSizeSixSevenY().getText();
         vansAndHariboPage.fieldSizeSixSevenY().click();
         vansAndHariboPage.btnAddToCart().click();
+        shoppingCartPage.btnCloseBasketPopUp().click();
         vansAndHariboPage.checkAddToCartInvisibility();
 
         vansBasePage.categoryBtnOnHeader(HeadersCategory.NEW_ARRIVALS.getName()).click();
-        String getNameFirstHat = newArrivalsPage.getNameFirstHatInNewArrivals().getText().toLowerCase();
-        newArrivalsPage.moveTheCursorToTheFirstHat().btnQuickShopOnTheFirstHat().click();
+        String getNameFirstBackpack = newArrivalsPage.getNameFirstBackpackInNewArrivals().getText().toLowerCase();
+        newArrivalsPage.moveTheCursorToTheFirstBackpack().btnQuickShopOnTheFirstBackpack().click();
         newArrivalsPage.fieldSelectSize().click();
         String getPriceHatInNewArrivals = newArrivalsPage.getPriceFirstHat().getText();
-        String getSizeHat = newArrivalsPage.selectSizeHatSM().getText();
-        newArrivalsPage.selectSizeHatSM().click();
+        String getSizeHat = newArrivalsPage.selectSecondSizeBackpack().getText();
+        newArrivalsPage.selectSecondSizeBackpack().click();
         newArrivalsPage.btnAddToCart().click();
+        shoppingCartPage.btnCloseBasketPopUp().click();
         newArrivalsPage.ckechBtnAddToCartInvisibility();
 
         List<String> listNameProducts = new ArrayList<>();
@@ -84,7 +89,7 @@ public class CheckTheOrderInformationForFiveProducts extends TestInit {
         listNameProducts.add(getNameMenBrand);
         listNameProducts.add(getNameKidsBrand);
         listNameProducts.add(getNameFirstTShirtInHaribo);
-        listNameProducts.add(getNameFirstHat);
+        listNameProducts.add(getNameFirstBackpack);
 
         List<String> listSizeProducts = new ArrayList<>();
         listSizeProducts.add(getSizeSelectionWomen);
@@ -123,13 +128,5 @@ public class CheckTheOrderInformationForFiveProducts extends TestInit {
         Assert.assertEquals(listNameProducts, actualResultName);
         Assert.assertEquals(listPriceProducts,paymentOrderSummeryPage.getPricesProducts());
         Assert.assertEquals(listSizeProducts,paymentOrderSummeryPage.getSizeProducts());
-
-
-
-
-
-
-
-
     }
 }

@@ -21,6 +21,7 @@ public class VansBasePage extends BasePage {
     private static final String CLOSE_POP_UP_SALE_TEN_PROC = "//div[@class='close-wrapper']";
     private static final String BTN_LANGUAGE_SELECTOR = "//div[contains(@class,'hide-for-small-only')]//span[@class='topnav-utility-item--flag-image-wrapper']";
 
+
     public WebElement categoryBtnOnHeader(String categoryName) {
         return waitUntilVisibilityElementLocated(String.format("(//ul[@role='menubar']/li[contains(@class,'topnav-accordion-item')])[%s]", categoryName));
     }
@@ -32,15 +33,7 @@ public class VansBasePage extends BasePage {
         return waitUntilVisibilityElementLocated(BTN_CLASSICS_IN_KIDS_BOX);
     }
     public WebElement btnAllowAllSecondOpen() {
-       return waitUntilElementToBeClickable(BTN_ALLOW_ALL_SECOND_OPEN);
-    }
-    public void skipAdd(){
-        if(btnAllowAllSecondOpen().isDisplayed()){
-            btnAllowAllSecondOpen().click();
-        }
-        if(!closePopUpSaleTenProc().isEmpty()){
-            closePopUpSaleTenProc().get(0).click();
-        }
+       return waitUntilVisibilityElementLocated(BTN_ALLOW_ALL_SECOND_OPEN);
     }
 
     public WebElement btnJacketInWomanMenu() {
@@ -65,5 +58,6 @@ public class VansBasePage extends BasePage {
         return waitUntilVisibilityElementLocated(String
                 .format("//div[contains(@class,'hide-for-small-only')]//li[@class='topnav-utility-item wishlist']//span[@class='topnav-utility-item-label'][contains(text(),'%s')]",nameBtn));
     }
+
 
 }

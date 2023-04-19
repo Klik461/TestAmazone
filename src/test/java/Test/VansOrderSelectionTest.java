@@ -18,13 +18,13 @@ public class VansOrderSelectionTest extends TestInit {
         openUrl();
         vansBasePage.btnAllowAllSecondOpen().click();
         vansBasePage.moveCursorOnCategoryBtn(HeadersCategory.KIDS.getName()).btnClassicsInKidsBox().click();
-        String NameBrand = kidsShoesPage.getNameClassics().getText();
         String PriceThirdShoes = kidsShoesPage.getPriceThirdShoes().getText().substring(1,6);
         String BrandThirdShoes = kidsShoesPage.getBrandThirdShoes().getText().toLowerCase();
         kidsShoesPage.moveThirdProductClassics().btnQuickShopThirdProduct().click();
         kidsShoesPage.fieldSelectSize().click();
         kidsShoesPage.fieldSizeTen().click();
         kidsShoesPage.btnAddToCart().click();
+        shoppingCartPage.btnCloseBasketPopUp().click();
         vansBasePage.btnBasketOnHeader().click();
 
         String SizeShouse = kidsShoesPage.getSizeShoesSelect().getText();

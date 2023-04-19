@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
@@ -29,9 +31,9 @@ public class TestInit {
         driver.get("https://www.vans.co.uk");
     }
 
-   /* @AfterMethod
-    public void closeBrouser() {
-        driver.quit();
-    }*/
+//    @AfterMethod
+//    public void closeBrouser() {
+//        driver.quit();
+//    }
 
 }

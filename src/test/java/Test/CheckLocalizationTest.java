@@ -7,13 +7,16 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+
+import static java.lang.Thread.sleep;
 
 public class CheckLocalizationTest extends TestInit{
 
     @DataProvider(name = "languageCheck")
-    public Object [][] languageList() {
+    public static Object [][] languageList() {
         return new Object[][]{
                 {"France","Favoris"},
                 {"Italy","Preferiti"},
@@ -27,31 +30,16 @@ public class CheckLocalizationTest extends TestInit{
         LanguageSelectionPage languageSelectionPage = new LanguageSelectionPage(driver);
 
         openUrl();
-
-
-        vansBasePage.skipAdd();
+        try {
+            vansBasePage.btnAllowAllSecondOpen().click();
+        }catch(Exception e) {
+            System.out.println("Test go next step");
+        }
         vansBasePage.btnLanguageSelector().click();
         languageSelectionPage.clickBtnSelectLocation();
         languageSelectionPage.getSelectCoutryLocation(country).click();
         languageSelectionPage.clickBtnGOonLanguagePage();
         vansBasePage.btnAllowAllSecondOpen().click();
         Assert.assertTrue(vansBasePage.getNameBtnFavorite(nameBtn).getText().contains(nameBtn));
-
-
-
-         /*if (vansBasePage.btnAllowAllSecondOpen().isDisplayed()) {
-            vansBasePage.btnAllowAllSecondOpen().click();
-            vansBasePage.btnLanguageSelector().click();
-        }else if(vansBasePage.closePopUpSaleTenProc().isDisplayed()) {
-            vansBasePage.closePopUpSaleTenProc().click();
-            vansBasePage.btnLanguageSelector().click();
-        }else vansBasePage.btnLanguageSelector().click();*/
     }
-
-
-
-
-
-
-
 }

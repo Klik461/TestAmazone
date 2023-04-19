@@ -17,7 +17,7 @@ public class WomanJacketAndCoatsPage extends BasePage {
     private static final String FIELD_SIZE_WOMEN_JACKET = "//select[@id='attr-size']";
     private static final String FIELD_SELECTION_XXS = "//div[@value='XXS']";
     private static final String BTN_ADD_TO_CART = "//section[@id='ecom-product-actions']//button[@data-added-to-cart-text='Added']";
-    private static final String GET_SELECTION_SIZE_WOMAN = "//div[@data-attribute-stock='49']//span[@class='primary-label']";
+    private static final String GET_SELECTION_SIZE_WOMAN = "//div[@data-attribute-stock='50']//span[@class='primary-label']";
 
 
     public WebElement secondProductInWomanJacket() {
