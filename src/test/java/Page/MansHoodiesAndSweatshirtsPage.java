@@ -14,7 +14,7 @@ public class MansHoodiesAndSweatshirtsPage extends BasePage {
     private static final String GET_NAME_FIVE_PRODUCT = "//div[@data-part-number='VN0A456AY28']//span[@class='product-block-name-wrapper']";
     private static final String FIELD_SELECT_SIZE_HOODIES = "//select[@id='attr-size']";
     private static final String SELECT_SIZE_L_ABOUT_HOODIES = "//div[@class='dropdown-item '][@value='L']";
-    private static final String BTN_ADD_TO_CART_MEN_HOODIES = "//div[contains(@class,'add-to-wishlist-enabled bl_VAN-187-1')]//button[@aria-label='add to cart']";
+    private static final String BTN_ADD_TO_CART_MEN_HOODIES = "//button[@aria-label='add to cart']";
     private static final String GET_PRICE_MEN_HOODIES = "//div[@class='price-container price-container-js']//span[contains(@class,'product-content-info-offer-price')]";
 
     public WebElement fiveProductInMenHoodies() {

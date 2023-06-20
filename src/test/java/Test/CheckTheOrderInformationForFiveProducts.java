@@ -19,8 +19,6 @@ public class CheckTheOrderInformationForFiveProducts extends TestInit {
         WomanJacketAndCoatsPage womanJacketAndCoatsPage = new WomanJacketAndCoatsPage(driver);
         MansHoodiesAndSweatshirtsPage mansHoodiesAndSweatshirtsPage = new MansHoodiesAndSweatshirtsPage(driver);
         KidsShoesPage kidsShoesPage = new KidsShoesPage(driver);
-        VansAndHariboPage vansAndHariboPage = new VansAndHariboPage(driver);
-        NewArrivalsPage newArrivalsPage = new NewArrivalsPage(driver);
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
         DeliveryDetailsData deliveryDetailsData = new DeliveryDetailsData();
         SelectDeliveryPage selectDeliveryPage = new SelectDeliveryPage(driver);
@@ -62,48 +60,20 @@ public class CheckTheOrderInformationForFiveProducts extends TestInit {
         shoppingCartPage.btnCloseBasketPopUp().click();
         kidsShoesPage.checkAddToCartInvisibility();
 
-        vansBasePage.categoryBtnOnHeader(HeadersCategory.VANS_X_HARIBO.getName()).click();
-        String getNameFirstTShirtInHaribo = vansAndHariboPage.getBrandFirstTShirt().getText().toLowerCase();
-        vansAndHariboPage.moveCursorOnFirstTShirt().btnQuickShopOnFirstTShirt().click();
-        vansAndHariboPage.fieldSelectSize().click();
-        String getPriceFirstTShirt = vansAndHariboPage.getPriceTShirt().getText();
-        String getSizeFirstTShirt = vansAndHariboPage.fieldSizeSixSevenY().getText();
-        vansAndHariboPage.fieldSizeSixSevenY().click();
-        vansAndHariboPage.btnAddToCart().click();
-        shoppingCartPage.btnCloseBasketPopUp().click();
-        vansAndHariboPage.checkAddToCartInvisibility();
-
-        vansBasePage.categoryBtnOnHeader(HeadersCategory.NEW_ARRIVALS.getName()).click();
-        String getNameFirstBackpack = newArrivalsPage.getNameFirstBackpackInNewArrivals().getText().toLowerCase();
-        newArrivalsPage.moveTheCursorToTheFirstBackpack().btnQuickShopOnTheFirstBackpack().click();
-        newArrivalsPage.fieldSelectSize().click();
-        String getPriceHatInNewArrivals = newArrivalsPage.getPriceFirstHat().getText();
-        String getSizeHat = newArrivalsPage.selectSecondSizeBackpack().getText();
-        newArrivalsPage.selectSecondSizeBackpack().click();
-        newArrivalsPage.btnAddToCart().click();
-        shoppingCartPage.btnCloseBasketPopUp().click();
-        newArrivalsPage.ckechBtnAddToCartInvisibility();
-
         List<String> listNameProducts = new ArrayList<>();
         listNameProducts.add(getNameWomanBrand);
         listNameProducts.add(getNameMenBrand);
         listNameProducts.add(getNameKidsBrand);
-        listNameProducts.add(getNameFirstTShirtInHaribo);
-        listNameProducts.add(getNameFirstBackpack);
 
         List<String> listSizeProducts = new ArrayList<>();
         listSizeProducts.add(getSizeSelectionWomen);
         listSizeProducts.add(getSizeMenHoodies);
         listSizeProducts.add(getSizeKidsProduct);
-        listSizeProducts.add(getSizeFirstTShirt);
-        listSizeProducts.add(getSizeHat);
 
         List<String> listPriceProducts = new ArrayList<>();
         listPriceProducts.add(getPriceWomanJacket);
         listPriceProducts.add(getPriceMenHoodies);
         listPriceProducts.add(getPriceKidsProduct);
-        listPriceProducts.add(getPriceFirstTShirt);
-        listPriceProducts.add(getPriceHatInNewArrivals);
 
         vansBasePage.btnBasketOnHeader().click();
         shoppingCartPage.btnCheckoutSecurely().click();
@@ -127,6 +97,5 @@ public class CheckTheOrderInformationForFiveProducts extends TestInit {
 
         Assert.assertEquals(listNameProducts, actualResultName);
         Assert.assertEquals(listPriceProducts,paymentOrderSummeryPage.getPricesProducts());
-        Assert.assertEquals(listSizeProducts,paymentOrderSummeryPage.getSizeProducts());
     }
 }

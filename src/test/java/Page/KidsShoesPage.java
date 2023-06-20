@@ -15,12 +15,12 @@ public class KidsShoesPage extends BasePage {
     private static final String GET_BRAND_THIRD_SHOES = "//div[@data-part-number='VN000D5F6BT']//span[contains(@class,'product-block-name-wrapper')]";
     private static final String FIELD_SELECT_SIZE = "//select[@id='attr-size']";
     private static final String FIELD_SIZE_TEN = "//div[@class='dropdown-item '][@value='10']";
-    private static final String BTN_ADD_TO_CART = "//div[contains(@class,'add-to-wishlist-enabled bl_VAN-187-1')]//button[@aria-label='add to cart']";
+    private static final String BTN_ADD_TO_CART = "//button[@aria-label='add to cart']";
 
     private static final String GET_SIZE_SELECT_SHOES = "//dl[@class='item-detail-attr-list']//dd[@class='item-detail-attr'][1]";
-    private static final String FOUR_PRODUCT_IN_MINI_ME_KIDS = "//div[@data-part-number='VN0A7Q5DBMB']";
-    private static final String GET_NAME_BRAND_IN_MINI_ME_KIDS = "//div[@data-part-number='VN0A7Q5DBMB']//span[@class='product-block-name-wrapper']";
-    private static final String BTN_QUICK_SHOP_ON_FOUR_PRODUCT = "//div[@data-part-number='VN0A7Q5DBMB']//button[@aria-label='Quick Shop']";
+    private static final String FOUR_PRODUCT_IN_MINI_ME_KIDS = "//div[@data-part-number='VN0A7Q5F7VJ']";
+    private static final String GET_NAME_BRAND_IN_MINI_ME_KIDS = "//div[@data-part-number='VN0A7Q5F7VJ']//span[@class='product-block-name-wrapper']";
+    private static final String BTN_QUICK_SHOP_ON_FOUR_PRODUCT = "//div[@data-part-number='VN0A7Q5F7VJ']//button[@aria-label='Quick Shop']";
     private static final String FIELD_SIZE_HALF_TEN = "//div[contains(@data-attribute,'')]//span[contains(text(),'10.5')]";
     private static final String GET_PRICE_KIDS_BRAND = "//div[@class='price-container price-container-js']//span[contains(@class,'product-content-info-offer-price')]";
 
