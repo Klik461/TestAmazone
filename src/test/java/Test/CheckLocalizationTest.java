@@ -3,6 +3,7 @@ package Test;
 import BasesClass.TestInit;
 import Page.LanguageSelectionPage;
 import Page.VansBasePage;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -30,6 +31,13 @@ public class CheckLocalizationTest extends TestInit{
         LanguageSelectionPage languageSelectionPage = new LanguageSelectionPage(driver);
 
         openUrl();
+//        if (vansBasePage.btnAllowAllSecondOpenExist()) {
+//            vansBasePage.btnAllowAllSecondOpen().click();
+//        }
+//        if (vansBasePage.btnClosePopUpSaleTenProcExist()) {
+//            vansBasePage.closePopUpSaleTenProc().click();
+//        }
+
         try {
             vansBasePage.btnAllowAllSecondOpen().click();
         }catch(Exception e) {
@@ -46,5 +54,9 @@ public class CheckLocalizationTest extends TestInit{
         languageSelectionPage.clickBtnGOonLanguagePage();
         vansBasePage.btnAllowAllSecondOpen().click();
         Assert.assertTrue(vansBasePage.getNameBtnFavorite(nameBtn).getText().contains(nameBtn));
+    }
+
+    private boolean isButtonExist() {
+        return driver.findElements(By.xpath("...")).size() > 0;
     }
 }

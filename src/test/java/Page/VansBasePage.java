@@ -1,10 +1,9 @@
 package Page;
 
 import BasesClass.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 public class VansBasePage extends BasePage {
 
@@ -33,7 +32,11 @@ public class VansBasePage extends BasePage {
         return waitUntilVisibilityElementLocated(BTN_CLASSICS_IN_KIDS_BOX);
     }
     public WebElement btnAllowAllSecondOpen() {
-       return waitUntilVisibilityElementLocated(BTN_ALLOW_ALL_SECOND_OPEN);
+        return waitUntilElementToBeClickable(BTN_ALLOW_ALL_SECOND_OPEN);
+    }
+
+    public boolean existFirstPopUp() {
+        return waitUntilElementsToBoLocated(BTN_ALLOW_ALL_SECOND_OPEN).size() > 0;
     }
 
     public WebElement btnJacketInWomanMenu() {
@@ -50,6 +53,9 @@ public class VansBasePage extends BasePage {
     }
     public WebElement closePopUpSaleTenProc() {
         return waitUntilElementToBeClickable(CLOSE_POP_UP_SALE_TEN_PROC);
+    }
+    public boolean existTenProcPopUp() {
+        return waitUntilElementsToBoLocated(CLOSE_POP_UP_SALE_TEN_PROC).size() > 0;
     }
     public WebElement btnLanguageSelector() {
         return  waitUntilElementToBeClickable(BTN_LANGUAGE_SELECTOR);

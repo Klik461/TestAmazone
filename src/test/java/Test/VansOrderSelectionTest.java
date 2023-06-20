@@ -2,6 +2,7 @@ package Test;
 
 import BasesClass.TestInit;
 import Page.*;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
